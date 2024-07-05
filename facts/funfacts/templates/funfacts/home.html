@@ -1,0 +1,28 @@
+{% extends 'funfacts/base.html'%}
+{% block content %}
+<h1>БУДЬ ЛЮБЕЗЕН ОСТАВАЙСЯ ВМЕСТЕ С НАМИ ДО УТРА</h1>
+
+
+{%for s in songs%}
+<div align="center" class = "song_block" >
+
+<h1 align="center">{{s.title}}</h1>
+<div  id='song_author'>
+<b><p>Автор: {{s.author}}</p></b></div>
+{%if s.Image%}
+<p><img src = '{{s.Image.url}}' ></p>
+{%endif%}
+<h3 id = 'song_content'>{{s.content|linebreaks|truncatewords:30}}</h3>
+
+<div align="right">
+<a href = '{{s.get_absolute_url}}' class="authors" ><b>Full text...</b></a></div>
+</div>
+
+<br>
+
+
+{%endfor%}
+
+
+<p><a href = "{% url 'addSong' %}"></a></p>
+{% endblock %}

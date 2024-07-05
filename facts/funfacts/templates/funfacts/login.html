@@ -1,0 +1,22 @@
+{% extends 'funfacts/base.html'%}
+{%block content%}
+<h1>{{title}}</h1>
+
+
+<form method = 'Post'>
+	
+	{%csrf_token%}<nav align ='center'>
+
+	<div class="registration">
+	{%for f in form%}
+	<div>{{f.errors}}</div>
+<nav align="center"><label for = "{{ f.id_for_label}}"><b>{{f.label}}:</b></label></nav><p align="center">{{f}}</p>
+
+	{%endfor%}
+	<br>
+	<p align="right"><button type="submit" class="user"><b>SUBMIT</b></button></p>
+	</div></nav>
+</form>
+
+
+{%endblock%}

@@ -1,0 +1,15 @@
+{% extends 'funfacts/base.html'%}
+
+{%block content%}
+<div align="center" class = "song_block" >
+	<div class = "song_content">
+<h1>{{song.title}}</h1>
+<b><p id='song_author'>Автор: {{song.author}}</p></b>
+
+{%if song.Image%}
+<p>
+<img src="{{song.Image.url}}"></p>
+{%endif%}
+<p id = 'song_content'><b>
+{{song.content|linebreaks }}</b></p></div></div>
+{%endblock%}

@@ -1,0 +1,25 @@
+{% extends 'funfacts/base.html'%}
+{% block content %}
+ПЕРЕДОООООООООООООООООЗ НАС С ТОБОЙ МИЛЫЙ понять тебя осилюсь
+
+
+{%for s in songs%}
+<div align="center" class = "song_block" >
+	<div class = "song_content">
+<h1><p align="center">{{s.title}}</p></h1>
+<b><p id='song_author' align="right">Автор: {{s.author}}</p></b>
+{%if s.Image%}
+<img src = '{{s.Image.url}}' >
+{%endif%}
+<h3><p id = 'song_content'> {{s.content|linebreaks|truncatewords:30}}</p></h3></div>
+<div align="right">
+<a href = '{{s.get_absolute_url}}' class="authors" ><b>Full text...</b></a></div>
+</div>
+
+</div>
+<br>
+
+
+{%endfor%}
+
+{% endblock %}

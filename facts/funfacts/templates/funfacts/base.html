@@ -1,0 +1,73 @@
+{% load static %}
+{%load funfacts_tags%}
+<!DOCTYPE html>
+<html>
+	<link type = 'text/css'href="{% static 'funfacts/css/styles.css' %}" rel="stylesheet" />
+
+<head>
+
+
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>{{title}}</title>
+<style type="text/css">
+ </style>
+</head>
+<body>
+					{%if request.user.is_authenticated%}
+	<nav class='btn_nav_auth'>
+<p align = 'right' id = 'btn_nav_auth'>
+		<button class='btn_nav'><a href='{%url "addSong"%}'>Добавить песню</a></button>
+
+		<button class = 'btn_nav'><a href='{%url "home"%}'>{{user.username}}</a></button>
+		<button class='btn_nav'><a href='{%url "logout"%}'>Выход</a></button>
+</p>
+	</nav>
+	{%else%}
+	<nav align = "right"><b>
+<a href = "{% url 'login'%}">Авторизация</a>|
+<a href = "{% url 'registration'%}">Регистрация</a></b>
+	</nav>
+
+{%endif%}
+	<ol>
+		{%for c in cats%}
+		{% if c.pk == cat_selected%}
+		<div><li>{{c.name}}</li></div>
+		<br>
+		
+		{%else %}
+				<li><div ><a  href = "{{c.get_absolute_url}}" >{{c.name}}</a></div></li>
+				
+				{%endif%}
+				{%endfor%}
+	</ol>
+<div class = 'sidenav'>
+	{%show_authors 'id' author_selected%}
+
+</div>
+{%block content%}
+{%endblock%}
+
+{% if page_obj.has_other_pages %}
+<p align="center" class = 'pag'> 
+{%for p in paginator.page_range%}
+
+{%if page_obj.number == p%}
+
+{{p}}
+
+{% elif p >= page_object.number|add:-1 or p <= page_obj.number|add:1 %}
+<a href = '?page={{p}}'>{{p}}</a>
+{%endif%}
+{%endfor%}
+</a>
+{%endif%}
+
+{%if cat_selected != 0%}
+<a href="{% url 'home'%}"><button>Home page</button></a>
+{%else%}
+<a href="{% url 'authorsPage'%}"><button>MENU OF SONGS</button></a>
+{%endif%}
+</body>
+</html>
