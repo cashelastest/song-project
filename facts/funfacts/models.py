@@ -17,6 +17,7 @@ class Song(models.Model):
 	author = models.ForeignKey('Author', on_delete = models.PROTECT, null = True,verbose_name='Автор')
 	content = models.TextField(verbose_name="Содержание")
 	Image = models.ImageField(upload_to = 'photos/%Y/%m/%d/', verbose_name="Фото")
+	Video = models.FileField(upload_to = 'files/', verbose_name = 'файл', blank = True, null = True)
 	cat = models.ForeignKey("Category", on_delete = models.PROTECT, null = True, verbose_name="Номер категории")
 	def save(self, *args, **kwargs):
 		if not self.slug:

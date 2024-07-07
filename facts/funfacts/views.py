@@ -5,7 +5,8 @@ from django.views.generic import ListView, DetailView, CreateView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.views import LoginView
 from django.contrib.auth import logout
-
+from user_agents import parse
+import requests
 
 from .models import *
 from .forms import *
@@ -19,9 +20,11 @@ class SongHome(DataMixin,ListView):
 	context_object_name = 'songs'
 	template_name = 'funfacts/home.html'
 
+
 	def get_context_data(self,*, object_list=None, **kwargs):
 		context = super().get_context_data(**kwargs)
 		c_def=self.get_user_context(title="home", author_selected = 0)
+		
 		return dict(list(context.items())+list(c_def.items()))
 
 def login(request):
@@ -71,16 +74,21 @@ class Choose_Author(DataMixin,ListView):
 	model = Song
 	template_name = "funfacts/category.html"
 	context_object_name= 'songs'
-	allow_empty=False
+	allow_empty= True
 	def get_queryset(self):
+
 		return Song.objects.filter(author__slug=self.kwargs['author_slug'])
 
 	def get_context_data(self,*, object_list = None, **kwargs):
 		context = super().get_context_data(**kwargs)
-		c_def = self.get_user_context(title = "Категории" + str(context['songs'][0].author),
-			author_selected = context['songs'][0].author_id)
-		print(context['songs'][0].author_id)
-		print("ho")
+		try:
+			s = context['songs'][0]
+			c_def = self.get_user_context(title = "Категории" + str(s.author),
+			author_selected = s.author_id)
+
+		except:
+			c_def=self.get_user_context(title="home", author_selected = 0)
+
 		return dict(list(context.items())+ list(c_def.items()))
 
 
@@ -162,3 +170,35 @@ class LoginUser(DataMixin,LoginView):
 def logout_user(request):
 	logout(request)
 	return redirect('home')
+class addURL(DataMixin, CreateView):
+	form_class = AddUrlForm
+	template_name = 'funfacts/urls.html'
+
+	def get_context_data(self,*, object_list =None, **kwargs):
+		context = super().get_context_data(**kwargs)
+		c_def = self.get_user_context(title = 'addURL')
+		return dict(list(context.items())+ list(c_def.items()))
+
+def download(request):
+	if request.method == 'POST':
+		form = AddUrlForm(request.POST)
+		if form.is_valid():
+
+			name = form.cleaned_data['name']
+			url = form.cleaned_data['url']
+			chunk_size = 512
+			r = requests.get(url, stream = True)
+			with open(f"{name}.mp4", 'wb') as f:
+
+				f.write(r.content)
+				f.close()
+
+
+	else:
+
+		form = AddUrlForm()
+	context ={
+	'title': 'downloads',
+	'form': form,
+	}
+	return render(request, 'funfacts/download.html',context=context)

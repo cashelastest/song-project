@@ -15,7 +15,7 @@ class AddSongForm(forms.ModelForm):
 
 	class Meta:
 		model = Song
-		fields =['title','slug', 'author', 'content', 'cat', 'Image']
+		fields =['title', 'author', 'content', 'cat', 'Image', 'Video']
 class AddAuthorForm(forms.ModelForm):
 	name = forms.CharField(label = "Имя автора")
 	class Meta:
@@ -46,3 +46,8 @@ class RegisterUserForm(UserCreationForm):
 class LoginUserForm(AuthenticationForm):
 	username = forms.CharField(label = 'LOGIN', widget = forms.TextInput(attrs ={'class':'form-input'}))
 	password = forms.CharField(label = 'Your secret key', widget = forms.PasswordInput(attrs={'class':'form-input'}))
+class AddUrlForm(forms.Form):
+	url = forms.CharField(label = 'URL', widget = forms.URLInput(attrs = {'class':"form-input"}))
+	name = forms.CharField(label = 'Название', widget = forms.TextInput(attrs={'class': 'form-input'}))
+	class Meta:
+		fields = ['name', 'url']

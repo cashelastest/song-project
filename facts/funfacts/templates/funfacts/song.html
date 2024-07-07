@@ -9,6 +9,8 @@
 {%if song.Image%}
 <p>
 <img src="{{song.Image.url}}"></p>
+<video src="{{l}}"></video>
+<a href="{{song.Video.url}}"> video</a>
 {%endif%}
 <p id = 'song_content'><b>
 {{song.content|linebreaks }}</b></p></div></div>

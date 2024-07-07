@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-^4#vv(e0h*d0^#wuzczychrday0+cremr!ztp@)me6nka$bs^!
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['Mrrac.pythonanywhere.com']
+ALLOWED_HOSTS = ['Mrrac.pythonanywhere.com', '127.0.0.1']
 
 
 # Application definition
@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'funfacts.apps.FunfactsConfig',
+
 ]
 
 MIDDLEWARE = [
@@ -49,6 +50,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    
 ]
 
 ROOT_URLCONF = 'facts.urls'
