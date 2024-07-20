@@ -27,6 +27,10 @@ class Song(models.Model):
 		return self.title
 	def get_absolute_url(self):
 		return reverse('song', kwargs={'song_slug': self.slug})
+	def get_absolute_url_author(self):
+		return reverse('author', kwargs={'author_slug': self.author.slug})
+	def get_absolute_url_cat(self):
+		return reverse('category', kwargs = {'cat_slug':self.cat.slug})
 class Author(models.Model):
 	name = models.CharField(max_length = 255)
 	slug= models.SlugField(max_length=255,db_index = True, unique = True)
@@ -37,7 +41,7 @@ class Author(models.Model):
 			self.slug = slugify(self.name)
 		super().save(*args, **kwargs)
 	def get_absolute_url(self):
-		return reverse('choose_author', kwargs={'author_slug': self.slug})
+		return reverse('author', kwargs={'author_slug': self.slug})
 
 class Category(models.Model):
 	name = models.CharField(max_length = 255, db_index = True)
@@ -50,7 +54,9 @@ class Category(models.Model):
 	def __str__(self):
 		return self.name
 	def get_absolute_url(self):
-		return reverse('menu', kwargs={'cat_id': self.pk})
+		return reverse('category', kwargs={'cat_slug': self.slug})
+	def get_absolute_pk(self):
+		return self.pk
 
 
 

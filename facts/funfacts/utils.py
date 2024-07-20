@@ -6,8 +6,13 @@ class DataMixin:
 	def get_user_context(self, **kwargs):
 		context = kwargs
 		author = Author.objects.all()
+		cats = Category.objects.all()
 		context['author']=author
+		context['cats'] = cats
 
 		if 'author_selected' not in context:
 			context['author_selected']=0
+		if 'category_selected' not in context:
+			context['category_selected'] = 0
+			pass
 		return context

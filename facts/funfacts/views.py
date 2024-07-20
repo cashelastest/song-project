@@ -45,35 +45,22 @@ def songs(request):
 
 
 
-def category (request, cat_id):
 
-	songs=Song.objects.filter(cat_id=cat_id)
+def category (request, cat_slug):
 	cats = Category.objects.all()
-	context={
-	'songs':songs,
-	'cats':cats,
-	'cat_selected': cat_id,
-	'title':"CATEGORY",
-	}
-
-	return render(request, "funfacts/category.html",context=context)
-def menu (request, cat_id):
-	cats = Category.objects.all()
-	songs = Song.objects.filter(cat_id =cat_id)
+	songs = Song.objects.filter(cat__slug =cat_slug)
 	context = {
 	"cats": cats,
 	'songs': songs,
-	'cat_selected': cat_id,
 	'title':'songs',
 }
-	return render(request, 'funfacts/songs.html', context=context)
-
+	return render(request, 'funfacts/home.html', context=context)
 
 
 
 class Choose_Author(DataMixin,ListView):
 	model = Song
-	template_name = "funfacts/category.html"
+	template_name = "funfacts/home.html"
 	context_object_name= 'songs'
 	allow_empty= True
 	def get_queryset(self):

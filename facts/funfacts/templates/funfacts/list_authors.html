@@ -4,11 +4,11 @@
 
 
 
-{%elif fuck.pk <= author_selected|add:1 and fuck.pk >= author_selected|add:-1 %}
-<p><a href="{{fuck.get_absolute_url}}" class="authors">{{fuck.name}}</a></p>
+{%elif fuck.pk <= author_selected|add:2 and fuck.pk >= author_selected|add:-2 %}
+<a href="{{fuck.get_absolute_url}}" class="authors">{{fuck.name}}</a>
 
-{%elif author_selected == 0 %}
-<p><a href="{{fuck.get_absolute_url}}" class="authors">{{fuck.name}}</a></p>
+{%elif author_selected == 0 and fuck.pk <= 4 %}
+<a href="{{fuck.get_absolute_url}}" class="authors">{{fuck.name}}</a>
 
 	{%endif%}
 

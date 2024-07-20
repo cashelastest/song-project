@@ -4,6 +4,7 @@ body {
 
 }
 a{
+    transition: all 1s;
   text-decoration: none;
   color: #7AA899; /*---  light green*//*#8B7AAB ---- light purple*/
 }
@@ -21,7 +22,8 @@ a{
 
 /* Ссылки в меню навигации */
 .SidenavPcTrue a {
-  padding: 6px 8px 6px 16px;
+  padding-left: 8px;
+  padding-top: 6px;
   text-decoration: none;
   font-size: 25px;
   color: #7AA899;
@@ -34,12 +36,16 @@ a{
   color: lightgray;
 
 }
-.song_blockTrue{
+.song_block_PcTrue{
   margin-left:33%;
   width:600px;
   border: solid #8B7AAB 5px;
   border-radius: 3px;
-
+  font-size: 18px;
+}
+.song_block_PcTrue a:hover{
+  transition: all 1s;
+  color: lightgray;
 }
 .btn_nav_auth_PcTrue{
 
@@ -54,4 +60,21 @@ a{
 .btn_nav_auth_PcTrue a:hover{
   transition: all 1s;
   color: lightgray;
+}
+.song_info{
+text-align: left;
+  width:auto;
+
+  padding-left: 4px;
+}
+.Full_PcTrue{
+  padding-right: 20px;
+  padding-bottom: 110px;
+  font-size: 22px;
+}
+
+.Full_PcTrue:hover{
+  transition: margin-right 500ms .5s;
+  color: lightgray;
+  font-size: 25px;
 }
