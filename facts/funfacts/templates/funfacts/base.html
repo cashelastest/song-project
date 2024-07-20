@@ -1,4 +1,5 @@
 {% load static %}
+{% load user_agents %}
 {%load funfacts_tags%}
 <!DOCTYPE html>
 <html>
@@ -15,16 +16,14 @@
 </head>
 <body>
 					{%if request.user.is_authenticated%}
-	<nav class='btn_nav_auth'>
-<p align = 'right' id = 'btn_nav_auth'>
-		<button class='btn_nav'><a href='{%url "addSong"%}'>Добавить песню</a></button>
+	<nav class='btn_nav_auth_Pc{{request.user_agent.is_pc}}'>
+	<h3>
+		<a href='{%url "addSong"%}'>Добавить песню&emsp;&emsp;</a>
+		<a href='{%url "home"%}'>{{user.username}}  </a>  &ensp; | &ensp;  <a href='{%url "logout"%}'>Выход</a></h3>
 
-		<button class = 'btn_nav'><a href='{%url "home"%}'>{{user.username}}</a></button>
-		<button class='btn_nav'><a href='{%url "logout"%}'>Выход</a></button>
-</p>
 	</nav>
 	{%else%}
-	<nav align = "right"><b>
+	<nav align = "right" class="top_menu_Pc{{request.user_agent.is_pc}}"><b>
 <a href = "{% url 'login'%}">Авторизация</a>|
 <a href = "{% url 'registration'%}">Регистрация</a></b>
 	</nav>
@@ -42,7 +41,7 @@
 				{%endif%}
 				{%endfor%}
 	</ol>
-<div class = 'sidenav'>
+<div class = 'SidenavPc{{request.user_agent.is_pc}}'>
 	{%show_authors 'id' author_selected%}
 
 </div>

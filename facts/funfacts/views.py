@@ -5,7 +5,8 @@ from django.views.generic import ListView, DetailView, CreateView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.views import LoginView
 from django.contrib.auth import logout
-from user_agents import parse
+
+
 import requests
 
 from .models import *

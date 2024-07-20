@@ -48,6 +48,6 @@ class LoginUserForm(AuthenticationForm):
 	password = forms.CharField(label = 'Your secret key', widget = forms.PasswordInput(attrs={'class':'form-input'}))
 class AddUrlForm(forms.Form):
 	url = forms.CharField(label = 'URL', widget = forms.URLInput(attrs = {'class':"form-input"}))
-	name = forms.CharField(label = 'Название', widget = forms.TextInput(attrs={'class': 'form-input'}))
+
 	class Meta:
-		fields = ['name', 'url']
+		fields = '__all__'

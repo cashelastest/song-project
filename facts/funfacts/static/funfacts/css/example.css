@@ -1,0 +1,130 @@
+body {
+  background: #3B3A3D;
+  color: #C0C0C0;
+}
+
+a { 
+    text-decoration: none; /* Отменяем подчеркивание у ссылки */
+    
+    font-size: 24px;
+    margin: 10px;
+    color: lightgray;
+   }
+ .authors:hover{
+  border: #8B7AAB solid 3px ;
+  border-radius:5px;
+  padding-bottom: 2px;
+  padding-left: 4px;
+  padding-right: 4px;
+  padding-top: 2px;
+      font-size: 26px;
+  }
+  #aub{
+  border: #8B7AAB solid 3px ;
+  border-radius:7px;
+  padding: 5px;
+margin: 5 px;
+  }
+  p {
+  margin-top: 15px;
+
+}
+.song_block{
+  margin-left: auto;
+  margin-right: auto;
+  border: #8B7AAB solid 8px ;
+  border-radius: 30px;
+  width:700px;
+  white-space: nowrap;
+   font-size: 21px;
+   padding:20px;
+
+}
+#song_author{
+  text-align: right;
+  font-size: 24px;
+  color: #7AA899;
+}
+.authors{
+  color: #7AA899;
+}
+.sidenav {
+  height:30%;
+  width:300px;
+  position: fixed;
+ /* Set the width of the sidebar */
+ /* Fixed Sidebar (stay in place on scroll) */
+    z-index: 1; /* Stay on top */
+    top: 0; /* Stay at the top */
+    left: 0;
+ /* Black */
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 20px;
+    margin: 40px;
+    color:#7AA899;
+
+}
+
+
+form{
+  padding-left: 400px;
+}
+.tut{
+  border: #8B7AAB solid 5px;
+  background-color: #3B3A3D;
+  color: lightgray;
+  border-radius: 8px;
+  width:70%;
+  height:50px;
+}
+.form-input{
+  width: 70%;
+  align: center;
+  border: #8B7AAB solid 5px;
+  background-color: #3B3A3D;
+  color: lightgray;
+  border-radius: 3px;
+}
+.registration{
+  font-size: 16px;
+  margin-top: 30px;
+  color: #7AA899;
+  width: 400px;
+  padding: 20px;
+  border: #7AA899 solid 3px;
+}
+.user{
+  border: #3B3A3D solid 2px;
+    font-size: 16px;
+  width:70px;
+  color: #7AA899;
+  height: 30px;
+  background-color:#3B3A3D;
+
+}
+.user:hover{
+  font-size: 16px;
+
+  width:80px;
+    cursor: pointer;
+  color: #7AA899;
+  background-color:#3B3A3D;
+
+}
+#content{
+  align-content: center;
+}
+.btn_nav_auth .btn_nav{
+  background-color: #3B3A3D;
+  border: None;
+  font-size: 16px;
+  cursor: pointer;
+  color: lightgray;
+  font-size: 22px;
+    padding: 20px;
+
+}
+.pag{
+  color: #7AA899;
+}
+

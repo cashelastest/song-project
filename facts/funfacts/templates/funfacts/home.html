@@ -1,10 +1,12 @@
 {% extends 'funfacts/base.html'%}
+
 {% block content %}
 <h1>БУДЬ ЛЮБЕЗЕН ОСТАВАЙСЯ ВМЕСТЕ С НАМИ ДО УТРА</h1>
 
+{% if request.user_agent.is_pc %}
 
 {%for s in songs%}
-<div align="center" class = "song_block" >
+<div align="center" class = "song_block{{request.user_agent.is_pc}}" >
 
 <h1 align="center">{{s.title}}</h1>
 <div  id='song_author'>
@@ -12,7 +14,7 @@
 {%if s.Image%}
 <p><img src = '{{s.Image.url}}' ></p>
 {%endif%}
-<h3 id = 'song_content'>{{s.content|linebreaks|truncatewords:30}}</h3>
+<h3 id = 'song_content'>{{s.content|linebreaks|truncatewords:40}}</h3>
 
 <div align="right">
 <a href = '{{s.get_absolute_url}}' class="authors" ><b>Full text...</b></a></div>
@@ -24,5 +26,7 @@
 {%endfor%}
 
 
-<p><a href = "{% url 'addSong' %}"></a></p>
+    Do stuff here...
+{% endif %}
+<p><a href = "{% url 'addSong' %}">9o0</a></p>
 {% endblock %}
