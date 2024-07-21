@@ -43,6 +43,7 @@ a{
   border: solid #8B7AAB 5px;
   border-radius: 3px;
   font-size: 20px;
+  margin-top: 10px;
 }
 .song_block_PcTrue a:hover{
   transition: all 1s;
@@ -83,4 +84,7 @@ text-align: left;
   font-size: 22px;
   padding-left: 6px;
   color: lightgray;
+}
+#id_author{
+  width: 200px;
 }

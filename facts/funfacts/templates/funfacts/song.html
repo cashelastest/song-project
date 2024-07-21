@@ -1,16 +1,18 @@
 {% extends 'funfacts/base.html'%}
 
 {%block content%}
-<div align="center" class = "song_block" >
+<div align="center" class = "song_block_Pc{{request.user_agent.is_pc}}" >
 	<div class = "song_content">
 <h1>{{song.title}}</h1>
-<b><p id='song_author'>Автор: {{song.author}}</p></b>
-
+<b><p align="left">Автор: {{song.author}}<br>
+Жанр:{%for cats in song.cat.all%}
+   <a href="{{cats.get_absolute_url}}"> {{ cats.name }}&ensp;</a>
+    {%endfor%}</p>
 {%if song.Image%}
 <p>
 <img src="{{song.Image.url}}"></p>
 
 {%endif%}
-<p id = 'song_content'><b>
+<p><b>
 {{song.content|linebreaks }}</b></p></div></div>
 {%endblock%}
