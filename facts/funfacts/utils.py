@@ -12,7 +12,7 @@ class DataMixin:
 
 		if 'author_selected' not in context:
 			context['author_selected']=0
-		if 'category_selected' not in context:
+		elif 'category_selected' not in context:
 			context['category_selected'] = 0
-			pass
+			
 		return context

@@ -4,8 +4,7 @@
 
 
 
-	<ol>
-		{%for c in cats%}
+{%for c in cats%}
 		{% if c.pk == cat_selected%}
 		<div><li>{{c.name}}</li></div>
 		<br>
@@ -15,8 +14,6 @@
 				
 				{%endif%}
 				{%endfor%}
-	</ol>
-
 {%for s in songs%}
 <div align="center" class = "song_block_Pc{{request.user_agent.is_pc}}" >
 

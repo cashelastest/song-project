@@ -29,18 +29,8 @@
 	</nav>
 
 {%endif%}
-	<ol>
-		{%for c in cats%}
-		{% if c.pk == cat_selected%}
-		<div><li>{{c.name}}</li></div>
-		<br>
-		
-		{%else %}
-				<li><div ><a  href = "{{c.get_absolute_url}}" >{{c.name}}</a></div></li>
-				
-				{%endif%}
-				{%endfor%}
-	</ol>
+
+	
 <div class = 'SidenavPc{{request.user_agent.is_pc}}'>
 	{%show_authors 'id' author_selected%}
 

@@ -10,7 +10,7 @@ a{
 }
 .SidenavPcTrue {
   /* Полная высота: удалите это, если вы хотите "авто" высота */
-  width: 160px; /* Установите ширину боковой панели */
+  width: 250px; /* Установите ширину боковой панели */
   position: fixed; /* Фиксированная боковая панель (оставайтесь на месте при прокрутке) */
   z-index: 1; /* Оставайтесь с верху */
   top: 0; /* Оставайтесь на вершине */
@@ -36,6 +36,7 @@ a{
   color: lightgray;
 
 }
+
 .song_block_PcTrue{
   margin-left:33%;
   width:600px;
@@ -77,4 +78,8 @@ text-align: left;
   transition: margin-right 500ms .5s;
   color: lightgray;
   font-size: 25px;
+}
+.side_text{
+  font-size: 20px;
+  padding-left: 4px;
 }

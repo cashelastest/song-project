@@ -56,7 +56,26 @@ def category (request, cat_slug):
 }
 	return render(request, 'funfacts/home.html', context=context)
 
+class Category(DataMixin,ListView):
+	model = Song
+	template_name = "funfacts/home.html"
+	context_object_name= 'songs'
+	allow_empty= True
+	def get_queryset(self):
 
+		return Song.objects.filter(cat__slug=self.kwargs['cat_slug'])
+
+	def get_context_data(self,*, object_list = None, **kwargs):
+		context = super().get_context_data(**kwargs)
+		try:
+			s = context['songs'][0]
+			c_def = self.get_user_context(title = "Категории" + str(s.cats),
+			category_selected = s.cat_id)
+
+		except:
+			c_def=self.get_user_context(title="home", category_selected = 0)
+
+		return dict(list(context.items())+ list(c_def.items()))
 
 class Choose_Author(DataMixin,ListView):
 	model = Song
