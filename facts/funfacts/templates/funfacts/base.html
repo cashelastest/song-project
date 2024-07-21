@@ -34,8 +34,8 @@
 	{%else%}
 		<nav class='btn_nav_auth_Pc{{request.user_agent.is_pc}}'>
 
-<a href = "{% url 'login'%}">Авторизация&emsp; </a> | &emsp;
-<a href = "{% url 'registration'%}"> Регистрация </a></b>
+<a href = "{% url 'login'%}"><b>Авторизация&emsp;</b></a> | &emsp;
+<a href = "{% url 'registration'%}"><b> Регистрация </a></b>
 	</nav>
 
 {%endif%}
@@ -66,10 +66,8 @@
 </a>
 {%endif%}
 
-{%if cat_selected != 0%}
-<a href="{% url 'home'%}"><button>Home page</button></a>
-{%else%}
-<a href="{% url 'authorsPage'%}"><button>MENU OF SONGS</button></a>
-{%endif%}
+
+
+
 </body>
 </html>

@@ -9,7 +9,8 @@ class AddSongForm(forms.ModelForm):
 
 	def __init__(self,*args,**kwargs):
 		super().__init__(*args, **kwargs)
-		self.fields['cat'].empty_label= "Category has not been choosen"
+		self.fields['author'].empty_label= "Author has not been choosen"
+
 
 
 	class Meta:
@@ -32,10 +33,10 @@ class AddCategoryForm(forms.ModelForm):
 
 
 class RegisterUserForm(UserCreationForm):
-	username = forms.CharField(label = 'LOGIN', widget = forms.TextInput(attrs ={'class':'form-input'}))
-	email = forms.EmailField(label = 'HJII!', widget=forms.EmailInput(attrs={'class':'form-input'}))
-	password1 = forms.CharField(label = 'Your secret key', widget = forms.PasswordInput(attrs={'class':'form-input'}))
-	password2 = forms.CharField(label = 'Repeat', widget = forms.PasswordInput(attrs={'class':'form-input'}))
+	username = forms.CharField(label = 'Юзернейм', widget = forms.TextInput(attrs ={'class':'form-input'}))
+	email = forms.EmailField(label = 'Почта', widget=forms.EmailInput(attrs={'class':'form-input'}))
+	password1 = forms.CharField(label = 'Твой секретный ключик', widget = forms.PasswordInput(attrs={'class':'form-input'}))
+	password2 = forms.CharField(label = 'Повтори', widget = forms.PasswordInput(attrs={'class':'form-input'}))
 
 	class Meta:
 		model =User
@@ -43,8 +44,8 @@ class RegisterUserForm(UserCreationForm):
 
 
 class LoginUserForm(AuthenticationForm):
-	username = forms.CharField(label = 'LOGIN', widget = forms.TextInput(attrs ={'class':'form-input'}))
-	password = forms.CharField(label = 'Your secret key', widget = forms.PasswordInput(attrs={'class':'form-input'}))
+	username = forms.CharField(label = 'Юзернейм', widget = forms.TextInput(attrs ={'class':'form-input'}))
+	password = forms.CharField(label = 'Секретный ключик', widget = forms.PasswordInput(attrs={'class':'form-input'}))
 class AddUrlForm(forms.Form):
 	url = forms.CharField(label = 'URL', widget = forms.URLInput(attrs = {'class':"form-input"}))
 

@@ -5,14 +5,16 @@
 <form action="{%url 'addSong'%}" method="post" enctype="multipart/form-data">
 
 
-	<div class="registration" align="center">
+	<div class="song_block_Pc{{request.user_agent.is_pc}}" align="center">
 	<div>{{form.non_field_errors}}</div>
 	{%csrf_token%}
-	{{form|crispy}}
-
+	
+	{%for f in form%}<p>
+<label for = "{{ f.id_for_label}}"><b>{{f.label}}:</b></label></p>{{f}}<p align="center"></p>
+{%endfor%}
 	<p>Нету вашего автора или категории?</p>
-	<p>Добавить:<a href="{% url 'addAuthor'%}"> автора</a>|<a href="{% url 'addCategory'%}">категорию</a></p>
-	<button type="submit" class="user"> <b>Добавить</b></button>
+	<p>Добавить:<b><a href="{% url 'addAuthor'%}"> автора </a> | <a href="{% url 'addCategory'%}"> категорию</a></b></p>
+	<p align="right"><button type="submit" class="user_btn_Pc{{request.user_agent.is_pc}}">  <b>Добавить</b></button></p>
 </form></div>
 
 

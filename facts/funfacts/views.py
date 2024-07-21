@@ -169,6 +169,7 @@ class LoginUser(DataMixin,LoginView):
 	form_class=LoginUserForm
 	template_name = 'funfacts/login.html'
 	success_url = reverse_lazy('home')
+	login_url = reverse_lazy('home')
 
 	def get_context_data(self,*,object_list =None, **kwargs):
 		context = super().get_context_data(**kwargs)
@@ -209,3 +210,5 @@ def download(request):
 	'form': form,
 	}
 	return render(request, 'funfacts/download.html',context=context)
+def red(request):
+	return redirect('home')

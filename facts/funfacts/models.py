@@ -42,11 +42,11 @@ class Category(models.Model):
 class Song(models.Model):
 	title = models.CharField(max_length = 255, verbose_name="Название")
 	slug = models.SlugField(max_length=255, unique=True, db_index = True, verbose_name = "URL")
-	author = models.ForeignKey('Author', on_delete = models.PROTECT, null = True,verbose_name='Автор')
+	author = models.ForeignKey('Author', on_delete = models.PROTECT, null = True,verbose_name='Автор', blank = True)
 	content = models.TextField(verbose_name="Содержание")
 	Image = models.ImageField(upload_to = 'photos/%Y/%m/%d/', verbose_name="Фото")
 	Video = models.FileField(upload_to = 'files/', verbose_name = 'файл', blank = True, null = True)
-	cat = models.ManyToManyField(Category, related_name='category')
+	cat = models.ManyToManyField(Category, verbose_name='Жанры (Можешь выбрать несколько, разраб постарался)',related_name='category')
 
 	def save(self, *args, **kwargs):
 		if not self.slug:

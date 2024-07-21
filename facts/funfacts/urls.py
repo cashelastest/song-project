@@ -14,7 +14,8 @@ path('forms/', views.addSong.as_view(), name = "addSong"),
 path('logout/', views.logout_user, name = 'logout'),
 path('songs/addAuthor/', views.addAuthor.as_view(), name = 'addAuthor'),
 path('songs/addCategory/', views.addCategory.as_view(), name = 'addCategory'),
-path('songs/download/', views.download, name = 'downloads')
+path('songs/download/', views.download, name = 'downloads'),
+path('accounts/profile/', views.red, name = 'red'),
 
 
 ]

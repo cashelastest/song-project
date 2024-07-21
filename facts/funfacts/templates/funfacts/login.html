@@ -7,14 +7,17 @@
 	
 	{%csrf_token%}<nav align ='center'>
 
-	<div class="registration">
+	
+	<div class="song_block_Pc{{request.user_agent.is_pc}}" align="center">
 	{%for f in form%}
-	<div>{{f.errors}}</div>
-<nav align="center"><label for = "{{ f.id_for_label}}"><b>{{f.label}}:</b></label></nav><p align="center">{{f}}</p>
 
-	{%endfor%}
-	<br>
-	<p align="right"><button type="submit" class="user"><b>SUBMIT</b></button></p>
+	<div>{{f.errors}}</div>
+
+	<div>{{form.non_field_errors}}</div>
+<p>
+<label for = "{{ f.id_for_label}}"><b>{{f.label}}:</b></label></p>{{f}}<p align="center"></p>
+{%endfor%}
+		<p align="right"><button type="submit" class="user_btn_Pc{{request.user_agent.is_pc}}"> <b>Добавить</b></button></p>
 	</div></nav>
 </form>
 
