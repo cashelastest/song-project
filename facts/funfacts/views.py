@@ -109,9 +109,9 @@ def authorPage(request):
 
 class Show_Song(DataMixin,DetailView):
 	model = Song
-	template_name = 'funfacts/song.html'
+	template_name = 'funfacts/home.html'
 	slug_url_kwarg = 'song_slug'
-	context_object_name='song'
+	context_object_name='songs'
 	def get_context_data(self, *, object_list=None, **kwargs):
 
 		context = super().get_context_data(**kwargs)

@@ -28,8 +28,9 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['Mrrac.pythonanywhere.com', '127.0.0.1']
 
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
 
-# Application definition
+CRISPY_TEMPLATE_PACK = "bootstrap5"
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -40,6 +41,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'funfacts.apps.FunfactsConfig',
     'django_user_agents',
+    'crispy_forms',
+    'crispy_bootstrap5'
 
 ]
 

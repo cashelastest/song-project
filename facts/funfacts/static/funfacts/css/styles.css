@@ -42,7 +42,7 @@ a{
   width:600px;
   border: solid #8B7AAB 5px;
   border-radius: 3px;
-  font-size: 18px;
+  font-size: 20px;
 }
 .song_block_PcTrue a:hover{
   transition: all 1s;
@@ -53,7 +53,7 @@ a{
   justify-content: center;
   display: flex;
   float: right;
-  font-size: 23px;
+  font-size: 24px;
   width: 30%;
 
 }
@@ -80,6 +80,7 @@ text-align: left;
   font-size: 25px;
 }
 .side_text{
-  font-size: 20px;
-  padding-left: 4px;
+  font-size: 22px;
+  padding-left: 6px;
+  color: lightgray;
 }

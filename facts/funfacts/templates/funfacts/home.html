@@ -10,14 +10,18 @@
 <h1 align="center">{{s.title}}</h1>
 <nav>
 <nav class="song_info">
-<b>Автор: <a href="{{s.get_absolute_url_author}}"> {{s.author}}</a><br><br>
-Жанр: <a href="{{s.get_absolute_url_cat}}"> {{s.cat}}</a>
+<b>Автор: <a href="{{s.get_absolute_url_author}}"> {{s.author}}</a><br>
+Жанр:{%for cats in s.cat.all%}
+   <a href="{{cats.get_absolute_url}}"> {{ cats.name }}&ensp;</a>
+    {%endfor%}
+
+
 </b>
 </nav>
 {%if s.Image%}
 <p><img src = '{{s.Image.url}}' ></p>
 {%endif%}
-<h3 id = 'song_content'>{{s.content|linebreaks|truncatewords:40}}</h3>
+<h4>{{s.content|linebreaks|truncatewords:40}}</h3>
 <div align="right">
 
 <a href = '{{s.get_absolute_url}}'  class="Full_Pc{{request.user_agent.is_pc}}">

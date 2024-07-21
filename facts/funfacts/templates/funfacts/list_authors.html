@@ -15,18 +15,18 @@
 
 {%endfor%}
 <nav class="side_text">Исполнители: </nav>
-{%for fuck in authors%}
-{%if fuck.pk == author_selected%}
+{%for author in authors%}
+{%if author.pk == author_selected%}
 
-<a  id = 'aub' href="{{fuck.get_absolute_url}}">{{fuck.name}}</a>
+<a  id = 'aub' href="{{author.get_absolute_url}}">{{author.name}}</a>
 
 
 
-{%elif fuck.pk <= author_selected|add:2 and fuck.pk >= author_selected|add:-2 %}
-<a href="{{fuck.get_absolute_url}}" class="authors">{{fuck.name}}</a>
+{%elif author.pk <= author_selected|add:2 and author.pk >= author_selected|add:-2 %}
+<a href="{{author.get_absolute_url}}" class="authors">{{author.name}}</a>
 
-{%elif author_selected == 0 and fuck.pk <= 4 %}
-<a href="{{fuck.get_absolute_url}}" class="authors">{{fuck.name}}</a>
+{%elif author_selected == 0 and author.pk <= 4 %}
+<a href="{{author.get_absolute_url}}" class="authors">{{author.name}}</a>
 
 	{%endif%}
 

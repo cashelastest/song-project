@@ -1,4 +1,6 @@
 {% extends 'funfacts/base.html'%}
+{% load crispy_forms_tags %}
+
 {% block content %}
 <form action="{%url 'addSong'%}" method="post" enctype="multipart/form-data">
 
@@ -6,7 +8,7 @@
 	<div class="registration" align="center">
 	<div>{{form.non_field_errors}}</div>
 	{%csrf_token%}
-	{{form.as_p}}
+	{{form|crispy}}
 
 	<p>Нету вашего автора или категории?</p>
 	<p>Добавить:<a href="{% url 'addAuthor'%}"> автора</a>|<a href="{% url 'addCategory'%}">категорию</a></p>

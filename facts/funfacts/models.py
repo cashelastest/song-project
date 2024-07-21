@@ -46,7 +46,7 @@ class Song(models.Model):
 	content = models.TextField(verbose_name="Содержание")
 	Image = models.ImageField(upload_to = 'photos/%Y/%m/%d/', verbose_name="Фото")
 	Video = models.FileField(upload_to = 'files/', verbose_name = 'файл', blank = True, null = True)
-	cat = models.ManyToManyField(Category)
+	cat = models.ManyToManyField(Category, related_name='category')
 
 	def save(self, *args, **kwargs):
 		if not self.slug:
@@ -62,6 +62,6 @@ class Song(models.Model):
 		return reverse('author', kwargs={'author_slug': self.author.slug})
 
 	def get_absolute_url_cat(self):
-		return reverse('category', kwargs = {'cat_slug':self.cat.slug})
+		return reverse('category', kwargs = {'cat_slug':self.catS.slug})
 
 
