@@ -5,17 +5,16 @@ from django.contrib.auth.models import User
 from django.contrib.auth.forms import AuthenticationForm
 class AddSongForm(forms.ModelForm):
 	title = forms.CharField(label = 'Название', widget = forms.TextInput(attrs={'class': 'form-input'}))
-
-	content = forms.CharField(label = 'Содержание', widget = forms.TextInput(attrs={'class': 'form-input'}))
+	content = forms.CharField(label = 'Содержание', widget = forms.Textarea(attrs={'class': 'form-input'}))
 
 	def __init__(self,*args,**kwargs):
 		super().__init__(*args, **kwargs)
 		self.fields['cat'].empty_label= "Category has not been choosen"
-		self.fields['author'].empty_label= "Author has not been choosen"
+
 
 	class Meta:
 		model = Song
-		fields =['title', 'author', 'content', 'cat', 'Image', 'Video']
+		fields =['title', 'author', 'content', 'cat', 'Image']
 class AddAuthorForm(forms.ModelForm):
 	name = forms.CharField(label = "Имя автора")
 	class Meta:

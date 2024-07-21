@@ -13,6 +13,9 @@
 	<title>{{title}}</title>
 <style type="text/css">
  </style>
+ <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+ <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 </head>
 <body>
 					{%if request.user.is_authenticated%}
@@ -38,6 +41,9 @@
 {%block content%}
 {%endblock%}
 
+{%block scripts%}
+
+{%endblock%}
 {% if page_obj.has_other_pages %}
 <p align="center" class = 'pag'> 
 {%for p in paginator.page_range%}
