@@ -19,7 +19,7 @@ class Author(models.Model):
 		return self.name
 	def save(self, *args, **kwargs):
 		if not self.slug:
-			self.slug = slugify(self.name)
+			self.slug = slugify(self.name,allow_unicode=True)
 		super().save(*args, **kwargs)
 	def get_absolute_url(self):
 		return reverse('author', kwargs={'author_slug': self.slug})
@@ -29,7 +29,7 @@ class Category(models.Model):
 	slug = models.SlugField(max_length=255, db_index = True, null = True)
 	def save(self, *args,**kwargs):
 		if not self.slug:
-			self.slug = slugify(self.name)
+			self.slug = slugify(self.name, allow_unicode=True)
 		super().save(*args,**kwargs)
 
 	def __str__(self):
@@ -50,8 +50,10 @@ class Song(models.Model):
 
 	def save(self, *args, **kwargs):
 		if not self.slug:
-			self.slug = slugify(self.title)
+			self.slug = slugify(self.title, allow_unicode=True)
 		super().save(*args, **kwargs)
+
+
 	def __str__(self):
 		return self.title
 
