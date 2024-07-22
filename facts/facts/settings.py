@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-^4#vv(e0h*d0^#wuzczychrday0+cremr!ztp@)me6nka$bs^!
 DEBUG = True
 WSGI_APPLICATION = 'facts.wsgi.application'
 
-ALLOWED_HOSTS = ['Mrrac.pythonanywhere.com', '127.0.0.1']
+ALLOWED_HOSTS = ['Mrracoo9.pythonanywhere.com', '127.0.0.1']
 
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
 

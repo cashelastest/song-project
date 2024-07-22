@@ -1,6 +1,6 @@
 from django.db import models
 from django.urls import reverse
-from django.utils.text import slugify
+from unidecode import unidecode
 
 
 class Fact(models.Model):
@@ -19,7 +19,7 @@ class Author(models.Model):
 		return self.name
 	def save(self, *args, **kwargs):
 		if not self.slug:
-			self.slug = slugify(self.name,allow_unicode=True)
+			self.slug = unidecode(self.name)
 		super().save(*args, **kwargs)
 	def get_absolute_url(self):
 		return reverse('author', kwargs={'author_slug': self.slug})
@@ -29,7 +29,7 @@ class Category(models.Model):
 	slug = models.SlugField(max_length=255, db_index = True, null = True)
 	def save(self, *args,**kwargs):
 		if not self.slug:
-			self.slug = slugify(self.name, allow_unicode=True)
+			self.slug = unidecode(self.name)
 		super().save(*args,**kwargs)
 
 	def __str__(self):
@@ -50,7 +50,7 @@ class Song(models.Model):
 
 	def save(self, *args, **kwargs):
 		if not self.slug:
-			self.slug = slugify(self.title, allow_unicode=True)
+			self.slug = unidecode(self.name)
 		super().save(*args, **kwargs)
 
 
