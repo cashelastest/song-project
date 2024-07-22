@@ -25,6 +25,7 @@ SECRET_KEY = 'django-insecure-^4#vv(e0h*d0^#wuzczychrday0+cremr!ztp@)me6nka$bs^!
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+WSGI_APPLICATION = 'facts.wsgi.application'
 
 ALLOWED_HOSTS = ['Mrrac.pythonanywhere.com', '127.0.0.1']
 
@@ -40,7 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'funfacts.apps.FunfactsConfig',
-    'django_user_agents',
+    'django-user-agents',
     'crispy_forms',
     'crispy_bootstrap5'
 
@@ -76,7 +77,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'facts.wsgi.application'
+
 
 
 # Database
