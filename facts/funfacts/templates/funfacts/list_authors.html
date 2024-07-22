@@ -21,11 +21,11 @@
 <nav class="side_text">Жанры:</nav>
 {%for cat in cats%}
 
-
+{%if cat.pk <= 5%}
 
 
 <a href="{{cat.get_absolute_url}}" class="authors">{{cat.name}}</a>
-
+{%endif%}
 
 
 
