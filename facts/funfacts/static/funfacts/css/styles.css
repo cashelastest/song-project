@@ -8,6 +8,7 @@ a{
   text-decoration: none;
   color: #7AA899; /*---  light green*//*#8B7AAB ---- light purple*/
 }
+/*---PC VERSION---*/
 .SidenavPcTrue {
   /* Полная высота: удалите это, если вы хотите "авто" высота */
   width: 250px; /* Установите ширину боковой панели */
@@ -38,7 +39,7 @@ a{
 }
 
 .song_block_PcTrue{
-  margin-left:33%;
+  margin-left:26%;
   width:600px;
   border: solid #8B7AAB 5px;
   border-radius: 3px;
@@ -80,30 +81,30 @@ text-align: left;
   color: lightgray;
   font-size: 25px;
 }
-.side_text{
+.side_text_PcTrue{
   font-size: 22px;
   padding-left: 6px;
   color: lightgray;
 }
 #id_author {
-  width: 300px;
+  width: 220px;
   background: darkgray;
 
 }
 
 #id_cat{
-  width: 300px;
+  width: 220px;
   color: black;
 }
 #id_title{
-  width: 300px;
+  width: 220px;
 }
 #id_content{
-  width: 300px;
+  width: 220px;
   height: 40px;
 }
 #id_Image{
-  width: 300px;
+  width: 220px;
   background: darkgray;
 }
 .user_btn_PcTrue{
@@ -113,6 +114,82 @@ text-align: left;
     margin-right: 10px;
 }
 .user_btn_PcTrue:hover{
+  transition: all 500ms ;
+
+  background: darkgrey;
+  color: white;
+}
+.side_text_PcTrue{
+  font-size: 18px;
+  padding-left: 8px;
+  color: lightgray;
+}
+
+.SidenavPcFalse {
+  /* Полная высота: удалите это, если вы хотите "авто" высота */
+  width: 100px; /* Установите ширину боковой панели */
+  position: fixed; /* Фиксированная боковая панель (оставайтесь на месте при прокрутке) */
+  z-index: 1; /* Оставайтесь с верху */
+  top: 0; /* Оставайтесь на вершине */
+  left: 0;
+
+  overflow-x: hidden; /* Отключить горизонтальную прокрутку */
+  padding-top: 20px;
+}
+
+/* Ссылки в меню навигации */
+.SidenavPcFalse a {
+  padding-left: 8px;
+  padding-top: 6px;
+  text-decoration: none;
+  font-size: 16px;
+  color: #7AA899;
+  display: block;
+}
+.song_block_PcFalse{
+  margin-left:110px;
+  width:68%;
+  border: solid #8B7AAB 5px;
+  border-radius: 10px;
+  font-size: 16px;
+  margin-top: 10px;
+  margin-right: 10px;
+  padding: 5px;
+}
+.song_block_PcFalse a:hover{
+  transition: all 1s;
+  color: lightgray;
+}
+.song_block_PcFalse img{
+  width: 200px;
+}
+
+.side_text_PcFalse{
+  font-size: 15px;
+  padding-left: 8px;
+  color: lightgray;
+}
+.btn_nav_auth_PcFalse{
+
+  justify-content: center;
+  display: flex;
+  float: center;
+  font-size: 18px;
+  width: auto;
+
+}
+
+.btn_nav_auth_PcFalse a:hover{
+  transition: all 1s;
+  color: lightgray;
+}
+.user_btn_PcFalse{
+  height: 33px;
+  border-radius: 12px;
+  border-color:#3B3A3D;
+    margin-right: 10px;
+}
+.user_btn_PcFalse:hover{
   transition: all 500ms ;
 
   background: darkgrey;

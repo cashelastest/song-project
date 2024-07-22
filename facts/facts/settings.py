@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'funfacts.apps.FunfactsConfig',
-    'django-user-agents',
+    'django_user_agents',
     'crispy_forms',
     'crispy_bootstrap5'
 

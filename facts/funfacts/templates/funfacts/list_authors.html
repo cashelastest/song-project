@@ -1,16 +1,5 @@
-<nav class="side_text">Жанры:</nav>
-{%for cat in cats%}
-
-
-
-{%if cat.pk <= 5%}
-<a href="{{cat.get_absolute_url}}" class="authors">{{cat.name}}</a>
-
-
-	{%endif%}
-
-{%endfor%}
-<nav class="side_text">Исполнители: </nav>
+<br>
+<nav class="side_text_Pc{{request.user_agent.is_pc}}"><b>Исполнители:</b> </nav>
 {%for author in authors%}
 {%if author.pk == author_selected%}
 
@@ -18,13 +7,27 @@
 
 
 
-{%elif author.pk <= author_selected|add:2 and author.pk >= author_selected|add:-2 %}
+{%elif author.pk <= author_selected|add:4 and author.pk >= author_selected|add:-4 %}
 <a href="{{author.get_absolute_url}}" class="authors">{{author.name}}</a>
 
-{%elif author_selected == 0 and author.pk <= 4 %}
+{%elif author_selected == 0 and author.pk <= 10%}
 <a href="{{author.get_absolute_url}}" class="authors">{{author.name}}</a>
 
 	{%endif%}
+
+{%endfor%}
+
+
+<nav class="side_text">Жанры:</nav>
+{%for cat in cats%}
+
+
+
+
+<a href="{{cat.get_absolute_url}}" class="authors">{{cat.name}}</a>
+
+
+
 
 {%endfor%}
 		

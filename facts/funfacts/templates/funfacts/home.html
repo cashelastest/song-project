@@ -21,7 +21,8 @@
 {%if s.Image%}
 <p><img src = '{{s.Image.url}}' ></p>
 {%endif%}
-<h4>{{s.content|linebreaks|truncatewords:40}}</h3>
+<b>
+{{s.content|linebreaks|truncatewords:40}}</b>
 <div align="right">
 
 <a href = '{{s.get_absolute_url}}'  class="Full_Pc{{request.user_agent.is_pc}}">

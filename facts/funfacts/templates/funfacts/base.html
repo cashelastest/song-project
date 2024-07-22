@@ -24,8 +24,8 @@
 					{%if request.user.is_authenticated%}
 	<nav class='btn_nav_auth_Pc{{request.user_agent.is_pc}}'>
 	<h3>
-		<a href='{%url "addSong"%}'>Добавить песню&emsp;&emsp;</a>
-		<a href='{%url "home"%}'>{{user.username}}  </a>  &ensp; | &ensp;   <a href='{%url "logout"%}'>Выход</a></h3>
+		<a href='{%url "addSong"%}'>Добавить песню </a>|
+		<a href='{%url "home"%}'>{{user.username}}  </a>  |  <a href='{%url "logout"%}'>Выход</a></h3>
 
 	</nav>
 
@@ -34,15 +34,15 @@
 	{%else%}
 		<nav class='btn_nav_auth_Pc{{request.user_agent.is_pc}}'>
 
-<a href = "{% url 'login'%}"><b>Авторизация&emsp;</b></a> | &emsp;
+<a href = "{% url 'login'%}"><b> Авторизация&ensp; </b></a>  |  &ensp;
 <a href = "{% url 'registration'%}"><b> Регистрация </a></b>
 	</nav>
 
 {%endif%}
-
+<br>
 	
 <div class = 'SidenavPc{{request.user_agent.is_pc}}'>
-	{%show_authors 'id' author_selected%}
+	<b>{%show_authors 'id' author_selected%}</b>
 
 </div>
 {%block content%}

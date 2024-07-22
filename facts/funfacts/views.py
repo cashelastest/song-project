@@ -138,7 +138,7 @@ class addSong(DataMixin, CreateView):
 class addAuthor(DataMixin, CreateView):
 	form_class = AddAuthorForm
 	template_name = 'funfacts/add_author.html'
-	success_url = reverse_lazy('home')
+	success_url = reverse_lazy('addSong')
 
 	def get_context_data(self,*,object_list = None, **kwargs):
 		context = super().get_context_data(**kwargs)
@@ -147,7 +147,7 @@ class addAuthor(DataMixin, CreateView):
 class addCategory(DataMixin, CreateView):
 	form_class = AddCategoryForm
 	template_name = 'funfacts/add_category.html'
-	success_url = reverse_lazy('home')
+	success_url = reverse_lazy('addSong')
 
 	def get_context_data(self,*,object_list = None, **kwargs):
 		context = super().get_context_data(**kwargs)
