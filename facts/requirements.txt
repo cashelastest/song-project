@@ -1,0 +1,8 @@
+django
+pillow
+django_user_agents
+django-crispy-forms
+crispy_bootstrap5
+python-slugify
+unidecode
+requests
